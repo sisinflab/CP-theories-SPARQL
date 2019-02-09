@@ -63,7 +63,7 @@ Also in this case, the result is interesting, because CP-theories are perceived 
 ### Test on Simulated Users
 
 In order to closely simulate the behavior of a real user, we designed a tool able to perform the classical operations of expressing a preference and asking the system for an ordered list of relevant resources.
-For each domain of interest, the simulated users randomly extract  (with a uniform distribution) a property that they might be interested in, and then randomly select the other components of the preference (e.g., in case of a simple preference, _T > : x > x̂[∅]_, they select either the more liked resource _x_ and the less liked one _x̂ _).
+For each domain of interest, the simulated users randomly extract  (with a uniform distribution) a property that they might be interested in, and then randomly select the other components of the preference (e.g., in case of a simple preference, _T > : x > x̂[∅]_, they select either the more liked resource _x_ and the less liked one _ x̂  _).
 The composed preference is then sent to the server to be processed and stored.
 The system checks if the preference produced a cycle, eventually warning the user (in case of a cycle, a new preference is produced).
 Once the preference is correctly inserted, the simulated user performs a query to the system to retrieve an ordered list of the 100 most relevant resources. 
