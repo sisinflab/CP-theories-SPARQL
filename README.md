@@ -28,9 +28,9 @@ The dataset adopted consisted of a subset of *DBpedia* 2015-04 related to the fo
 ![Table 3](https://github.com/vitowalteranelli/CP-theories-SPARQL/blob/master/imgs/datasetStatistics.png)
 
 It is worth noticing that CP-statements can also be automatically extracted from users data \cite{LIU20137,LIU2015774,KORICHE2010685,6361391}. Nevertheless, we set up the previous experiment to have a hint on the average number of CP-statements $\varphi$  needed to model a user profile as well as on what is, from a user perspective, the most tricky version of $\varphi$ to represent  among:
-– > : x φ > x̂ φ [∅],
-– u φ : x φ > x̂ φ [∅],
-– u φ : x φ > x̂ φ [W φ ].
+- T > : x φ > x̂ φ [∅],
+- u φ : x φ > x̂ φ [∅],
+- u φ : x φ > x̂ φ [W φ ].
 
 The second experiment consisted of simulating 168 users using the platform and expressing an overall number of 6720 preferences and 6720 queries to retrieve the resources ranked by taking into their preferences. The aim of this experiment was that of evaluating the response time of the overall system in retrieving a  list of  resources based on a set of user preferences.
 
