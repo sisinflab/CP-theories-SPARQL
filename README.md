@@ -20,14 +20,18 @@ If you publish research that uses CP-theories-SPARQL please use:
   publisher={IOS Press}
 }
 ~~~
+The full paper describing the overall approach is available here [PDF](http://www-ictserv.poliba.it/publications/2018/ADDLR18/Combining%20RDF%20and%20SPARQL%20with%20CP-theories%20to%20reason%20about%20preferences%20in%20a%20Linked%20Data%20setting.pdf)
 
 ## Experiments
 In order to asses the effectiveness of the presented approach and the implemented tool,  we set up two different experiments. 
 The first experiment consisted of 20 real users using the tool to express their preferences. After the test, users were asked to fill up a questionnaire (reported in Table 5). We respect the Table numbers from the original paper.  
+
+![Table 5](https://github.com/vitowalteranelli/CP-theories-SPARQL/blob/master/imgs/userSurveyStatistics.png)
+
 The dataset adopted consisted of a subset of *DBpedia* 2015-04 related to the four popular domains of: Movies, Food, Music and Books. The statistics of the dataset used for experiments are detailed in Table 3.  
 ![Table 3](https://github.com/vitowalteranelli/CP-theories-SPARQL/blob/master/imgs/datasetStatistics.png)
 
-It is worth noticing that CP-statements can also be automatically extracted from users data \cite{LIU20137,LIU2015774,KORICHE2010685,6361391}. Nevertheless, we set up the previous experiment to have a hint on the average number of CP-statements $\varphi$  needed to model a user profile as well as on what is, from a user perspective, the most tricky version of $\varphi$ to represent  among:
+It is worth noticing that CP-statements can also be automatically extracted from users data. Nevertheless, we set up the previous experiment to have a hint on the average number of CP-statements φ  needed to model a user profile as well as on what is, from a user perspective, the most tricky version of φ to represent  among:
 - T > : x φ > x̂ φ [∅],
 - u φ : x φ > x̂ φ [∅],
 - u φ : x φ > x̂ φ [W φ ].
@@ -36,28 +40,38 @@ The second experiment consisted of simulating 168 users using the platform and e
 
 ### Test on Real Users
 In order to test the capability of a user to exploit the platform and even to test if human users unaware of CP-theories were able to express their preferences, we selected 20 users that did not know anything about CP-theories and, after a 5 minutes tutorial, we asked them to express their preferences by using our tool. We asked them to insert as many preferences as they wanted for each domain on the platform, and we then asked them to fill up a post-experience questionnaire in order to acquire some feedback about the experience. 
-The motivation of this experiment is twofold: the first information  that we wanted to collect was the number of preferences that a user is prone to explicitely express. The result for this evaluation is shown in Table \ref{tbl:users_stats}. The users provided an overall number of 322 preferences. The average numbers per user are quite similar among the different domains (between 4 and 6) with a little higher propensity to express preferences over books w.r.t.\ songs. The similar average values, and the similar standard deviations, suggest that  there exists a commonality in the number of expressed preferences over a specific domain.
-The second relevant information that we wanted to collect is how much the CP-theories expressiveness may fit a ``natural'' way of expressing preferences by a human being. To this aim, we submitted a small questionnaire with 10 questions whose relative answers in aggregate form are shown in Table \ref{tbl:users_survey} and Fig. \ref{fig:users_survey_q2}. All the questions but Q.2 needed to express a value in a 5-star rating scale, with 1 being the worst answer and 5 the best one.
+The motivation of this experiment is twofold: the first information  that we wanted to collect was the number of preferences that a user is prone to explicitely express. The result for this evaluation is shown in Table 4. 
+![Table 4](https://github.com/vitowalteranelli/CP-theories-SPARQL/blob/master/imgs/userExperimentsStatistics.png)
+
+The users provided an overall number of 322 preferences. The average numbers per user are quite similar among the different domains (between 4 and 6) with a little higher propensity to express preferences over books w.r.t.\ songs. The similar average values, and the similar standard deviations, suggest that  there exists a commonality in the number of expressed preferences over a specific domain.
+The second relevant information that we wanted to collect is how much the CP-theories expressiveness may fit a _natural_ way of expressing preferences by a human being. To this aim, we submitted a small questionnaire with 10 questions whose relative answers in aggregate form are shown in Table 5 and Fig. 9. All the questions but Q.2 needed to express a value in a 5-star rating scale, with 1 being the worst answer and 5 the best one.
+
+![Figure 9](https://github.com/vitowalteranelli/CP-theories-SPARQL/blob/master/imgs/chart3.png)
+
 Users felt that representing preferences was not a trivial operation (3.2 corresponds to the lowest value of the overall questionnaire), but this perceived difficulty is clearly dependent on the type of preference (it is worth to notice that for every specific kind of preference, the score is higher than the overall score). 
 
 Thanks to the survey, we can list in an increasing order of difficulty the different kinds of preferences:
-
-Moreover, if we look at the pie chart in Fig. \ref{fig:users_survey_q2}, it emerges that the most difficult part of the process was to detect the properties (variables $V$) on which the preferences should be expressed. 
+- “About a property, I prefer a Value over another Value” corresponding to > : x φ > x̂ φ [∅].
+- “Given a condition, I prefer a Value over another Value” corresponding to u φ : x φ > x̂ φ [∅].
+- “About a property, I prefer a Value over another Value irrespectively to a property” corresponding to u φ : x φ > x̂ φ [W φ ].
+Moreover, if we look at the pie chart in Fig. 9, it emerges that the most difficult part of the process was to detect the properties (variables _V_) on which the preferences should be expressed. 
 Another information that we wanted to collect was if the possible difficulty in expressing preferences is stable or it progressively vanishes as the number of expressed preferences increases. Questions 7, 8 and 9 show that the first preference was quite hard to express, but, as the experience goes on, it becomes much easier reaching an average value of 4.1.
 
-The last relevant information that we wanted to collect is how much the expressiveness of CP-theories  can correspond to a perceived ``natural'' way to express preferences.
+The last relevant information that we wanted to collect is how much the expressiveness of CP-theories  can correspond to a perceived _natural_ way to express preferences.
 Also in this case, the result is interesting, because CP-theories are perceived as a quite good way of expressing preferences with a high value of 3.8.
 
 ### Test on Simulated Users
 
 In order to closely simulate the behavior of a real user, we designed a tool able to perform the classical operations of expressing a preference and asking the system for an ordered list of relevant resources.
-For each domain of interest, the simulated users randomly extract  (with a uniform distribution) a property that they might be interested in, and then randomly select the other components of the preference (e.g., in case of a simple preference, $\top : x > \hat{x} [\emptyset]$, they select either the more liked resource $x$ and the less liked one $\hat{x}$).
+For each domain of interest, the simulated users randomly extract  (with a uniform distribution) a property that they might be interested in, and then randomly select the other components of the preference (e.g., in case of a simple preference, _T > : x > x̂[∅]_, they select either the more liked resource _x_ and the less liked one _x̂ _).
 The composed preference is then sent to the server to be processed and stored.
 The system checks if the preference produced a cycle, eventually warning the user (in case of a cycle, a new preference is produced).
 Once the preference is correctly inserted, the simulated user performs a query to the system to retrieve an ordered list of the 100 most relevant resources. 
-The system continues, inserting a new preference for the same domain, and asking the system for a new list. The process ends when 10 preferences are inserted for each domain and the 10 related queries accomplished.  Based on the previous experiment, we considered 10 as a representative number of preferences per user. Fig. \ref{fig:execution} shows the average execution time for an increasing  number of preferences related to the simulated users.\footnote{For those interested in a more fine-grained view of the data, a report of the execution times is publicly available at \url{https://github.com/sisinflab/CP-theories-SPARQL/blob/master/evaluation/evaluationResults.tsv}} The SPARQL engine adopted for the experimental evaluation is Jena Fuseki v. 2.3.1 running on a Linux server (kernel v. 4.4.0-28-generic) with an Intel Xeon @ 2.30GHz CPU and 8 GB RAM, while the local version of DBpedia had been loaded in a Virtuoso Server (v. 07.20.3212), running on a Linux server (kernel v. 4.2.0-23-generic) with an Intel Xeon @ 2.40 GHz CPU and 56 GB RAM. 
+The system continues, inserting a new preference for the same domain, and asking the system for a new list. The process ends when 10 preferences are inserted for each domain and the 10 related queries accomplished.  Based on the previous experiment, we considered 10 as a representative number of preferences per user. Fig. 10 shows the average execution time for an increasing  number of preferences related to the simulated users.
+For those interested in a more fine-grained view of the data, a report of the execution times is publicly available at [this link](https://github.com/vitowalteranelli/CP-theories-SPARQL/blob/master/evaluation/evaluationResults.tsv).
+The SPARQL engine adopted for the experimental evaluation is Jena Fuseki v. 2.3.1 running on a Linux server (kernel v. 4.4.0-28-generic) with an Intel Xeon @ 2.30GHz CPU and 8 GB RAM, while the local version of DBpedia had been loaded in a Virtuoso Server (v. 07.20.3212), running on a Linux server (kernel v. 4.2.0-23-generic) with an Intel Xeon @ 2.40 GHz CPU and 56 GB RAM. 
 
-The results show that queries based on a number of preferences lower than six take approximately less than one second to return results to the user. This is even more interesting if we consider results of the previous experiments, where we saw that users tend to express an average number of preferences between 4 \mbox{and 6.}
+The results show that queries based on a number of preferences lower than six take approximately less than one second to return results to the user. This is even more interesting if we consider results of the previous experiments, where we saw that users tend to express an average number of preferences between 4 and 6.
 
 ## Credits
 This algorithm has been developed by Vito Walter Anelli and Jessica Rosati while working at [SisInf Lab](http://sisinflab.poliba.it) under the supervision of Tommaso Di Noia.  
